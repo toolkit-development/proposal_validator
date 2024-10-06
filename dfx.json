@@ -1,0 +1,21 @@
+{
+  "canisters": {
+    "proposal_validator": {
+      "candid": "proposal_validator.did",
+      "package": "proposal_validator",
+      "type": "custom",
+      "wasm": "wasm/proposal_validator.wasm.gz",
+      "build": [
+        "bash scripts/build.sh"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
