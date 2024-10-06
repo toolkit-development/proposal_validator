@@ -5,6 +5,16 @@ use candid::export_service;
 use ic_cdk::query;
 
 #[query]
+fn icts_name() -> String {
+    env!("CARGO_PKG_NAME").to_string()
+}
+
+#[query]
+fn icts_version() -> String {
+    env!("CARGO_PKG_VERSION").to_string()
+}
+
+#[query]
 pub fn __get_candid_interface_tmp_hack() -> String {
     use crate::models::sns_governance::ManageNeuron;
     use icrc_ledger_types::icrc1::transfer::TransferArg;
