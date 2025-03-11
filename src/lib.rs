@@ -15,6 +15,11 @@ fn icts_version() -> String {
 }
 
 #[query]
+fn icts_description() -> String {
+    env!("CARGO_PKG_DESCRIPTION").to_string()
+}
+
+#[query]
 pub fn __get_candid_interface_tmp_hack() -> String {
     use crate::models::sns_governance::ManageNeuron;
     use icrc_ledger_types::icrc1::transfer::TransferArg;
