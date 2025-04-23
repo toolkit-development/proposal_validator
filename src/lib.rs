@@ -22,7 +22,9 @@ fn icts_description() -> String {
 #[query]
 pub fn __get_candid_interface_tmp_hack() -> String {
     use crate::models::sns_governance::ManageNeuron;
+    use candid::Principal;
     use icrc_ledger_types::icrc1::transfer::TransferArg;
+    use icrc_ledger_types::icrc2::approve::ApproveArgs;
     export_service!();
     __export_service()
 }

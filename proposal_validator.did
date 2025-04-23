@@ -24,6 +24,16 @@ type AddNeuronPermissions = record {
 };
 type AdvanceSnsTargetVersion = record { new_target : opt SnsVersion };
 type Amount = record { e8s : nat64 };
+type ApproveArgs = record {
+  fee : opt nat;
+  memo : opt blob;
+  from_subaccount : opt blob;
+  created_at_time : opt nat64;
+  amount : nat;
+  expected_allowance : opt nat;
+  expires_at : opt nat64;
+  spender : Account;
+};
 type By = variant {
   MemoAndController : MemoAndController;
   NeuronId : record {};
@@ -220,6 +230,10 @@ service : {
   icts_description : () -> (text) query;
   icts_name : () -> (text) query;
   icts_version : () -> (text) query;
+  validate_icpswap_transfer_position : (principal, principal, nat) -> (
+      Result,
+    ) query;
   validate_icrc1_transfer : (TransferArg) -> (Result) query;
+  validate_icrc2_approve : (ApproveArgs) -> (Result) query;
   validate_manage_neuron : (ManageNeuron) -> (Result) query;
 }
